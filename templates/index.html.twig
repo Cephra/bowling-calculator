@@ -1,0 +1,27 @@
+{% extends "base.html.twig" %}
+
+{% block body %}
+	<h3>Bowlingrechner</h3>
+	<turbo-frame id="bowling-form">
+		<div>
+			{{ form_start(form) }}
+			{{ form_errors(form) }}
+			{{ form_errors(form.frames) }}
+			<div>
+				{% for frameField in form.frames %}
+					<div>
+						<span>Frame {{ loop.index }}</span>
+						<div>
+                            {{ form_errors(frameField) }}
+                            {{ form_widget(frameField) }}
+                        </div>
+					</div>
+				{% endfor %}
+			</div>
+			{{ form_row(form.finalFrame) }}
+			{{ form_end(form) }}
+			<p>Result
+				{{ result|default() }}</p>
+		</div>
+	</turbo-frame>
+{% endblock %}
