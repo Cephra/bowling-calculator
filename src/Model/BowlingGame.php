@@ -7,6 +7,7 @@ use Symfony\Component\Validator\Constraints as Assert;
 class BowlingGame
 {
     #[Assert\Valid]
+    /** @var BowlingFrame[] */
     private array $frames = [];
 
     #[Assert\Valid]
